@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingkungan</title>
+    <style>
+        /* Reset CSS */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            padding: 20px;
+            margin-top: 20px; 
+            background-color: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        ul, ol {
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: justify;
+            margin-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        header {
+            background: url('sampul.jpg') center/cover no-repeat;
+            background-size: cover; 
+            color: white;
+            padding: 200px 20px;
+            text-align: center;
+            width: 100%; 
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        nav {
+            background-color: rgba(51, 51, 51, 0.7); 
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .initiatives {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .initiative {
+            width: calc(33.33% - 20px); 
+            margin-bottom: 30px;
+            background-color: #9ac49c; 
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s ease-in-out; 
+            position: relative; 
+        }
+
+        .initiative:hover {
+            transform: scale(1.05); 
+        }
+
+        img.logo {
+            max-width: 50px; 
+        }
+
+        
+        .image-scroll {
+            display: flex; 
+            overflow-x: auto; 
+            padding: 20px 0;
+            scroll-behavior: smooth; 
+            width: 100%; 
+            white-space: nowrap; 
+        }
+
+        
+        .image-scroll img {
+            max-width: 200px; 
+            height: auto; 
+            margin-right: 10px;
+            border-radius: 8px;
+            cursor: pointer; 
+        }
+
+        
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); 
+            z-index: 2;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .modal-img {
+            max-width: 90%;
+            max-height: 90%;
+            cursor: pointer; 
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(51, 51, 51, 0.7); 
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+        input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 5px 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        .initiative img[src="recycle.png"] {
+            max-width: 50px; 
+            display: block; 
+            margin: auto; 
+            background-color: transparent; 
+        }
+        .initiative img[src="pohon.png"] {
+            max-width: 50px; 
+            display: block; 
+            margin: auto; 
+            background-color: transparent; 
+        }
+        .initiative img[src="pembersih.png"] {
+            max-width: 50px; 
+            display: block;
+            margin: auto; 
+            background-color: transparent; 
+        }
+
+        .initiative h3 {
+            background-color: rgba(0, 0, 0, 0.7); 
+            color: white; 
+            padding: 10px; 
+            text-align: center; 
+            border-radius: 0 0 8px 8px; 
+        }
+        .initiative h3 {
+            text-align: center; 
+        }
+        p {
+            text-align: justify;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+        <ul>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#initiatives">Program dan Inisiatif</a></li>
+            <li><a href="#contact">Hubungi Kami</a></li>
+        </ul>
+        <div>
+            <input type="text" placeholder="Cari...">
+            <button type="submit">Cari</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Selamat Datang di Tema Lingkungan</h1>
+    </header>
+    <section id="environment">
+        <h1><strong>Lingkungan Hidup</strong></h1>
+
+        <p>Lingkungan hidup adalah segala sesuatu yang ada di sekitar manusia dan berhubungan timbal balik. Lingkungan hidup adalah sistem yang merupakan kesatuan ruang antara makhluk hidup dan komponen abiotik lainnya. Interaksi antar lingkungan alamiah dan sekitarnya membentuk sistem ekologi (ekosistem). Lingkungan memegang peranan sebagai habitat bagi kehidupan makhluk hidup di muka bumi.</p>
+        <img src="main1.jpg" alt="Lingkungan Hidup">
+        <p>Komponen-komponen lingkungan hidup terdiri dari dua jenis, yaitu:</p>
+        <ul>
+            <li>Komponen biotik, makhluk hidup yang meliputi hewan, tumbuhan, dan manusia.</li>
+            <li>Komponen abiotik adalah benda-benda tak hidup, antara lain air, tanah, batu, udara, dan cahaya matahari.</li>
+        </ul>
+        <p>Semua komponen yang berada di dalam lingkungan hidup merupakan satu kesatuan yang tidak dapat dipisahkan dan membentuk sistem kehidupan yang disebut ekosistem. Ekosistem yang merupakan bagian utama dari lingkungan hidup, adalah lingkungan yang sangat dinamis, karena banyaknya komponen yang terlibat di dalamnya. Jika salah satu komponen tersebut berubah maka sistem adaptasi dari organisme yang ada untuk menjaga keseimbangan akan mengalami perubahan. Karena ekosistem merupakan pusat segala aktivitas yang menyediakan sumber makanan dan kebutuhan lain bagi makhluk hidup maka keseimbangan komponen di dalamnya harus dijaga dengan baik.</p>
+        <p>Keseimbangan lingkungan secara alami dapat berlangsung karena beberapa hal, yaitu:</p>
+        <ol>
+            <li>Komponen-komponen yang terlibat dalam aksi-reaksi dan berperan sesuai kondisi keseimbangan.</li>
+            <li>Pemindahan energi (arus energi).</li>
+            <li>Siklus biogeokimia dapat berlangsung.</li>
+        </ol>
+        <p>Keseimbangan lingkungan dapat terganggu jika terjadi perubahan berupa pengurangan fungsi dari komponen atau hilangnya sebagian komponen yang dapat menyebabkan putusnya mata rantai dalam suatu ekosistem. Kondisi keseimbangan tersebut kemungkinan dapat berubah dengan adanya campur tangan manusia dengan segala aktivitas pemenuhan kebutuhan yang terkadang melampaui batas.</p>
+        <p>Sumber: <a href="https://id.wikipedia.org/wiki/Lingkungan_hidup">https://id.wikipedia.org/wiki/Lingkungan_hidup</a></p>
+    </section>
+
+    <section id="initiatives">
+        <h2>Program dan Inisiatif</h2>
+        <div class="initiatives">
+            <div class="initiative">
+                <img src="recycle.png" alt="Recycle Icon">
+                <h3>Recycle</h3>
+                <p>Kami mendukung daur ulang dan penggunaan kembali bahan-bahan untuk mengurangi limbah dan polusi lingkungan.</p>
+            </div>
+            <div class="initiative">
+                <img src="pohon.png" alt="Plant Icon">
+                <h3>Pohonkan</h3>
+                <p>Kami melakukan penanaman pohon untuk menjaga ekosistem dan mengurangi emisi karbon.</p>
+            </div>
+            <div class="initiative">
+                <img src="pembersih.png" alt="Clean Icon">
+                <h3>Pembersihan</h3>
+                <p>Kami mengadakan kegiatan membersihkan lingkungan, termasuk pantai, sungai, dan taman.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="image-scroll">
+        <h2>Galeri Gambar</h2>
+        <div class="image-scroll">
+            <img src="image1.jpg" alt="Image 1">
+            <img src="image2.jpg" alt="Image 2">
+            <img src="image3.jpg" alt="Image 3">
+            <img src="image4.jpg" alt="Image 4">
+        </div>
+    </section>
+    
+
+    <section id="contact">
+        <h2>Hubungi Kami</h2>
+        <p>Jika Anda ingin berkontribusi atau mendukung inisiatif kami, silakan hubungi kami di alamat email berikut: <a href="mailto:info@lingkunganbersih.org">info@lingkunganbersih.org</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Tema Lingkungan</p>
+    </footer>
+</body>
+</html>
