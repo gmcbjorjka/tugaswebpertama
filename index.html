@@ -12,6 +12,86 @@
             padding: 0;
             box-sizing: border-box;
         }
+        #calendar {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* Warna untuk hari Minggu */
+        td:nth-child(1) {
+            background-color: #FF5733;
+        }
+
+        /* Warna untuk hari Senin */
+        td:nth-child(2) {
+            background-color: #FFD700;
+        }
+
+        /* Warna untuk hari Selasa */
+        td:nth-child(3) {
+            background-color: #87CEEB;
+        }
+
+        /* Warna untuk hari Rabu */
+        td:nth-child(4) {
+            background-color: #98FB98;
+        }
+
+        /* Warna untuk hari Kamis */
+        td:nth-child(5) {
+            background-color: #FF69B4;
+        }
+
+        /* Warna untuk hari Jumat */
+        td:nth-child(6) {
+            background-color: #DDA0DD;
+        }
+
+        /* Warna untuk hari Sabtu */
+        td:nth-child(7) {
+            background-color: #7B68EE;
+        }
+
+        #environment table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        background: linear-gradient(to bottom, #FF5733 30%, #FFD700 30%, #FFD700 55%, #87CEEB 55%, #87CEEB 75%, #98FB98 75%, #98FB98 90%, #FF69B4 90%, #FF69B4 100%);
+        }
+
+        #environment th,
+        #environment td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            color: white;
+        }
+
+        #environment th {
+            background-color: #333;
+            font-weight: bold;
+        }
+
+        #environment tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -237,6 +317,54 @@
         p {
             text-align: justify;
         }
+        #comment {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#comment h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#comment form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#comment label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#comment input[type="text"],
+#comment textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#comment textarea {
+    height: 150px;
+}
+
+#comment button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+}
         
 
     </style>
@@ -281,6 +409,59 @@
         <p>Sumber: <a href="https://id.wikipedia.org/wiki/Lingkungan_hidup">https://id.wikipedia.org/wiki/Lingkungan_hidup</a></p>
     </section>
 
+    <section id="environment">
+        <h2>Laporan Lingkungan</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Faktor Lingkungan</th>
+                    <th>Presentase (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pencemaran Udara</td>
+                    <td>30%</td>
+                </tr>
+                <tr>
+                    <td>Pencemaran Air</td>
+                    <td>25%</td>
+                </tr>
+                <tr>
+                    <td>Deforestasi</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Penggunaan Plastik</td>
+                    <td>15%</td>
+                </tr>
+                <tr>
+                    <td>Pembuangan Limbah</td>
+                    <td>10%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="calendar">
+        <h2>Kalender</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Minggu</th>
+                    <th>Senin</th>
+                    <th>Selasa</th>
+                    <th>Rabu</th>
+                    <th>Kamis</th>
+                    <th>Jumat</th>
+                    <th>Sabtu</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+
     <section id="initiatives">
         <h2>Program dan Inisiatif</h2>
         <div class="initiatives">
@@ -311,6 +492,18 @@
             <img src="image4.jpg" alt="Image 4">
         </div>
     </section>
+    <section id="comment">
+        <h2>Komentar</h2>
+        <form action="#" method="post">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            
+            <label for="komentar">Komentar:</label>
+            <textarea id="komentar" name="komentar" rows="4" required></textarea>
+            
+            <button type="submit">Kirim Komentar</button>
+        </form>
+    </section>
     
 
     <section id="contact">
@@ -321,5 +514,35 @@
     <footer>
         <p>&copy; 2023 Tema Lingkungan</p>
     </footer>
+    <script>
+        function generateCalendar() {
+            const calendarBody = document.querySelector("#calendar tbody");
+            calendarBody.innerHTML = ""; 
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth();
+            const currentYear = currentDate.getFullYear();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+    
+            let dateCounter = 1;
+    
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement("tr");
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement("td");
+                    if (i === 0 && j < firstDayOfMonth) {
+                        cell.textContent = "";
+                    } else if (dateCounter <= daysInMonth) {
+                        cell.textContent = dateCounter;
+                        dateCounter++;
+                    }
+                    row.appendChild(cell);
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+        window.onload = generateCalendar;
+    </script>
+    
 </body>
 </html>
